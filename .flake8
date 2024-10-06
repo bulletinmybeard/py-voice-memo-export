@@ -1,0 +1,30 @@
+[flake8]
+max-line-count = 600
+max-line-length = 100
+import-order-style = pep8
+
+ignore =
+    # Not compliant with pep8
+    E203 E266 W503
+    # flake8-lineleak (until decision is made to keep or remove)
+    LLW404 LLW405 LLI200
+    # redefinition of unused...
+    F811
+
+## rules to ignore:
+##
+##  - E501	line too long
+##  - N802	function name should be lowercase
+##  - F401	'symbol' imported but unused
+
+per-file-ignores =
+   **/__init__.py: F401
+   **/tests/*.py: N802 F403 F405
+
+application-import-names =
+    tests,
+
+# Files should be incrementally removed from here as they are modified
+extend-exclude=
+    .pytest_cache,
+    .venv,
